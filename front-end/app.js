@@ -41,10 +41,6 @@ function show(data){
 }
 
 
-
-const setBanco = (banco) => localStorage.setItem('todolist', JSON.stringify(banco))
-
-
 //Função usada para criar uma tarefa nova no todolist, a função recebe o nome da tarefa, o seu status que pode ser 
 //ja realizado que seria o checked, ou vazio, além disso, recebe também um indice do array para o bom funcionamento
 //de outras funções do js.
@@ -125,13 +121,6 @@ const atualizarItem = (id) => {
     atualizarTela()
 }
 
-//Parte importante do código
-//aqui eu trago na função o evento do click dentro de um item/tarefa
-//e trato de identificar onde foi esse click, pois se ele tiver sido dentro da div/checkbox, eu 
-//chamo a função atualizarItem que muda o status do item no localStorage para checked.
-//porem se caso o elemento clicado for o botão dentro da div já sei que é para excluir
-//e chamo a função remover item passando o indice de onde clicado para a remoção
-//essa passagem do indice também acontece no atualizarItem.
 const clickItem = (event) => {
     const elemento = event.target
     console.log(elemento.dataset.indice)

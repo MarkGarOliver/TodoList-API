@@ -1,5 +1,24 @@
 # Aplicando API ao projeto TodoList
 
+## API
+
+* para buscar os dados, fazer requisição a rota /tasks exemplo:
+    ```
+    * async function buscarAPI(){
+        try {
+            const resposta = await fetch('http://localhost:6969/tasks')
+
+            const data = await resposta.json()
+            
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    ```
+
+
+----------------------
 `OBS:` Para o Front-End, utilizei a extensão live server;
 
 Dependências usadas{
