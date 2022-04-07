@@ -25,8 +25,8 @@ const newtask = require('./DB/models/task')
                     let i = 0
                     while(i  < count){
                         data.push({
-                            nome: tasks[i].nome,
-                            state: tasks[i].state
+                            tarefa: tasks[i].nome,
+                            status: tasks[i].state
                         })
                         i += 1
                     }

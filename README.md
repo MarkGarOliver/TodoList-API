@@ -15,9 +15,15 @@ Dependências usadas{
     * npm install --save cors
     * npm install sequelize mysql2
 
+* habilitar o cors
+
 * criar conexão com o banco de dados
     * criar o modelo de tabela que será utilizado => models
-    
-* criar rota da api
 
-* habilitar o cors
+* criar rota da api
+    * buscar dados no db
+    * processar e responder a req com os dados em json
+
+
+## Front-End
+
