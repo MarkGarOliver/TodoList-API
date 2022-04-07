@@ -25,6 +25,7 @@ const newtask = require('./DB/models/task')
                     let i = 0
                     while(i  < count){
                         data.push({
+                            id: tasks[i].id,
                             tarefa: tasks[i].nome,
                             status: tasks[i].state
                         })
@@ -42,12 +43,44 @@ const newtask = require('./DB/models/task')
                 nome: req.params.taskname,
                 state: ''
             }).then(function(){
-                res.send('criado')
+                res.redirect('http://127.0.0.1:5500/front-end/')
             }).catch(function(error){
                 console.error(error)
             })
+
+            //res.redirect('http://127.0.0.1:5500/front-end/')
         })
-    
+
+    //remove task
+        app.get('/remove/:id', (req, res) => {
+            newtask.destroy({where: {id: req.params.id}}).then(function(){
+
+            }).catch(function(error){
+                res.send(error)
+            })
+        })
+    //update task
+        app.get('/update/:id', (req, res) => {
+            newtask.findAll({where: {id: req.params.id}}).then(function(task){
+
+                if(task[0].state == 'checked'){
+                    newtask.update(
+                        {state: ''},
+                        {where: {id: req.params.id}}
+                    )
+                }else{
+                    newtask.update(
+                        {state: 'checked'},
+                        {where: {id: req.params.id}}
+                    )
+                }
+
+                res.redirect('http://127.0.0.1:5500/front-end/')
+            }).catch(function(error){
+                console.log(error)
+            })
+        })
+
 app.listen('6969', function(){
     console.log('Server on..')
 })
