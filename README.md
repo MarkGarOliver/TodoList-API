@@ -27,10 +27,14 @@ Exemplo:
 * para criar uma nova task no banco de dados usando a api, passar para a rota `/create/:taskname` sendo taskname o nome da nova task
 
 Exemplo: 
+
     ```
     function CriarNovaTask(newtask){
+
         window.location = 'http://server:6969/create' + newtask
+
     }
+
     ```
 
 ### Remover uma task no DB via api
